@@ -1,7 +1,5 @@
-import { Me, hasExceededShoutLimit, isAuthenticated } from "@/domain/me";
-import { Image } from "@/domain/media";
-import { Shout } from "@/domain/shout";
-import { User, hasBlockedUser } from "@/domain/user";
+import { hasExceededShoutLimit, isAuthenticated } from "@/domain/me";
+import { hasBlockedUser } from "@/domain/user";
 
 import { useCreateShout } from "../mutations/create-shout";
 import { useCreateShoutReply } from "../mutations/create-shout-reply";
@@ -27,11 +25,11 @@ export const ErrorMessages = {
 } as const;
 
 interface Dependencies {
-  me?: Me | null;
-  recipient?: User | null;
-  saveImage: (file: File) => Promise<Image>;
-  createShout: (input: { message: string; imageId?: string }) => Promise<Shout>;
-  createReply: (input: { shoutId: string; replyId: string }) => Promise<Shout>;
+  me: ReturnType<typeof useGetMe>["data"];
+  recipient: ReturnType<typeof useGetUser>["data"];
+  saveImage: ReturnType<typeof useSaveImage>["mutateAsync"];
+  createShout: ReturnType<typeof useCreateShout>["mutateAsync"];
+  createReply: ReturnType<typeof useCreateShoutReply>["mutateAsync"];
 }
 
 export async function replyToShout(
