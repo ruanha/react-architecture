@@ -6,11 +6,13 @@ interface GetUserInput {
   handle?: string;
 }
 
-export const queryKey = "user";
+export function getQueryKey(handle?: string) {
+  return ["user", handle];
+}
 
 export function useGetUser({ handle }: GetUserInput) {
   return useQuery({
-    queryKey: [queryKey, handle],
+    queryKey: getQueryKey(handle),
     queryFn: () => UserService.getUser(handle),
   });
 }

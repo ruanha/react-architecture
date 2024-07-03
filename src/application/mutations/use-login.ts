@@ -2,6 +2,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import AuthService from "@/infrastructure/auth";
 
+import { getQueryKey as getFeedQueryKey } from "../queries/get-feed";
+import { getQueryKey as getMeQueryKey } from "../queries/get-me";
+
 type Credentials = Parameters<(typeof AuthService)["login"]>[0];
 
 export function useLogin() {
@@ -10,8 +13,8 @@ export function useLogin() {
   return useMutation({
     mutationFn: (credentials: Credentials) => AuthService.login(credentials),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["me"] });
-      queryClient.invalidateQueries({ queryKey: ["feed"] });
+      queryClient.invalidateQueries({ queryKey: getMeQueryKey() });
+      queryClient.invalidateQueries({ queryKey: getFeedQueryKey() });
     },
   });
 }

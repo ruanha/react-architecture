@@ -6,11 +6,13 @@ interface GetUserShoutsInput {
   handle?: string;
 }
 
-export const queryKey = "user-shouts";
+export function getQueryKey(handle?: string) {
+  return ["user-shouts", handle];
+}
 
 export function useGetUserShouts({ handle }: GetUserShoutsInput) {
   return useQuery({
-    queryKey: [queryKey, handle],
+    queryKey: getQueryKey(handle),
     queryFn: () => UserService.getUserShouts(handle),
   });
 }
