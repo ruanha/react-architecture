@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import AuthService from "@/infrastructure/auth";
 
-import { getQueryKey as getFeedQueryKey } from "../queries/get-feed";
-import { getQueryKey as getMeQueryKey } from "../queries/get-me";
+import { getQueryKey as getFeedQueryKey } from "../queries/use-get-feed";
+import { getQueryKey as getMeQueryKey } from "../queries/use-get-me";
 
 type Credentials = Parameters<(typeof AuthService)["login"]>[0];
 

@@ -1,5 +1,5 @@
-import { useGetUser } from "../queries/get-user";
-import { useGetUserShouts } from "../queries/get-user-shouts";
+import { useGetUser } from "../queries/use-get-user";
+import { useGetUserShouts } from "../queries/use-get-user-shouts";
 
 interface GetUserProfileInput {
   handle?: string;

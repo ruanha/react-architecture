@@ -1,11 +1,11 @@
 import { hasExceededShoutLimit, isAuthenticated } from "@/domain/me";
 import { hasBlockedUser } from "@/domain/user";
 
-import { useCreateShout } from "../mutations/create-shout";
-import { useCreateShoutReply } from "../mutations/create-shout-reply";
-import { useSaveImage } from "../mutations/save-image";
-import { useGetMe } from "../queries/get-me";
-import { useGetUser } from "../queries/get-user";
+import { useCreateShout } from "../mutations/use-create-shout";
+import { useCreateShoutReply } from "../mutations/use-create-shout-reply";
+import { useSaveImage } from "../mutations/use-save-image";
+import { useGetMe } from "../queries/use-get-me";
+import { useGetUser } from "../queries/use-get-user";
 
 interface ReplyToShoutInput {
   recipientHandle: string;

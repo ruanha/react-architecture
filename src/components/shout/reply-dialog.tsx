@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useGetMe } from "@/application/queries/get-me";
+import { useGetMe } from "@/application/queries/use-get-me";
 import { useReplyToShout } from "@/application/reply-to-shout";
 import { LoginDialog } from "@/components/login-dialog";
 import { Button } from "@/components/ui/button";

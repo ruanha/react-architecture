@@ -1,4 +1,4 @@
-import { useGetFeed } from "@/application/queries/get-feed";
+import { useGetFeed } from "@/application/queries/use-get-feed";
 import { LoadingView } from "@/components/loading";
 import { ShoutList } from "@/components/shout-list";
 

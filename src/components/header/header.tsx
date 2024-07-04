@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { useLogout } from "@/application/mutations/use-logout";
-import { useGetMe } from "@/application/queries/get-me";
+import { useGetMe } from "@/application/queries/use-get-me";
 import { LoginDialog } from "@/components/login-dialog";
 import { Button } from "@/components/ui/button";
 import { isAuthenticated } from "@/domain/me";
